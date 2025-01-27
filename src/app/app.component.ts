@@ -16,11 +16,12 @@ export class AppComponent {
   cookie = inject(SsrCookieService);
   languageService = inject( LanguageService );
 
-  cookieLogEffect = effect(() => {
+  constructor() {
     console.log({cookie: this.cookie.get('lang')});
 
     const lang = this.cookie.check('lang') ? this.cookie.get('lang') : 'en';
 
     this.languageService.changeLang(lang);
-  });
+
+  }
 }
