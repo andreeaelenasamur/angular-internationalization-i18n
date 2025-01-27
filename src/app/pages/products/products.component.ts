@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import BasicPlanComponent from "../basic-plan/basic-plan.component";
 import { LanguageSelectorComponent } from "../../components/language-selector/language-selector.component";
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
@@ -9,9 +10,14 @@ import { LanguageSelectorComponent } from "../../components/language-selector/la
   imports: [
     RouterLink,
     BasicPlanComponent,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    TranslateModule
 ],
   templateUrl: './products.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ProductsComponent { }
+export default class ProductsComponent {
+
+  fullName = signal("Andreea Elena");
+
+}
